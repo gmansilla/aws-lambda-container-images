@@ -35,14 +35,8 @@ class LambdaContainerStack(core.Stack):
         
         api = api_gw.HttpApi(self, "API")
         
-        #integration = aws_apigatewayv2_integrations.HttpProxyIntegration(handler=lambda_function)
-        
-        api.add_routes(path='/hello', 
+        api.add_routes(path="/hello", 
             methods=[api_gw.HttpMethod.GET],
             integration=aws_apigatewayv2_integrations.LambdaProxyIntegration(handler=lambda_function))
-            #integration=api_gw.LambdaProxyIntegration(handler=lambda_function))
-            #integration=integration)
-        
-        
         
         core.CfnOutput(self, "Output", value=api.url)
