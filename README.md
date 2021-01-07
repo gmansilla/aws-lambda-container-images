@@ -97,6 +97,11 @@ REPORT RequestId: aa505f95-1bed-4fd2-adb2-2405effee01b  Init Duration: 1.61 ms  
 </pre>
 Just like you would see in AWS Lambda Console!
 
+## Destroying the stack ##
+After you experiment with this project you should run ```$cdk destroy``` to destroy all the infrastructure we created and avoid incurring in extra charges
+
+
+Enjoy!
 
 ## Further Reading ##
 * [New for AWS Lambda – Container Image Support Blog Post](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
