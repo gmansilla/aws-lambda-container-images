@@ -1,5 +1,5 @@
 # AWS Lambda containers
-POC project for running lambda functions based on containers.
+POC project for running AWS Lambda functions based on containers.
 
 * We will create an API Gateway with one endpoint (GET /hello). 
 * This endpoint will proxy the request to a lambda function.
