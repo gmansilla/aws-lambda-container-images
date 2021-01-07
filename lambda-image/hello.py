@@ -2,7 +2,7 @@ import json
 
 def handler(event, context):
     body = {
-        "message": "Hello World!",
+        "message": "Hello World! This is a message from a container",
         "input": event
     }
     response = {
