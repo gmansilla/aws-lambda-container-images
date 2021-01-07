@@ -1,4 +1,4 @@
-# lambda-containers
+# AWS Lambda containers
 POC project for running lambda functions based on containers.
 
 * We will create an API Gateway with one endpoint (GET /hello). 
@@ -14,7 +14,7 @@ We'll be using [CDK](https://docs.aws.amazon.com/cdk/latest/guide/home.html) for
 First, make sure you clone this project
 
 ```
-$git clone https://github.com/gmansilla/lambda-container-images.git && cd lambda-container-images
+$git clone https://github.com/gmansilla/aws-lambda-container-images.git && cd aws-lambda-container-images
 ```
 
 This project is set up like a standard Python project.  The initialization
@@ -67,3 +67,39 @@ Pay attention to the Output of this command as this will tell you the URL we're 
 ## Testing ##
 
 Now that the infrastructure has been deployed, you can start sending GET requests to the URL printed in the previous step
+
+## Testing Locally ##
+
+Since your lambda function is using a container image, and this image comes with the Lambda Runtime Interface Emulator,
+you can test your function locally!
+
+Let's use the Docker CLI to build our image locally:
+```
+$cd lambda-image
+$docker build -t demo .
+```
+
+Now, let's start the container image locally using the Lambda Runtime Interface Emulator
+```
+$docker run -p 9000:8080 demo:latest
+```
+
+Finally, we can start testing function invocation with cURL by opening a new terminal and sending a request.
+```
+curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
+```
+
+You'll see in your logs something like
+<pre>
+START RequestId: aa505f95-1bed-4fd2-adb2-2405effee01b Version: $LATEST
+END RequestId: aa505f95-1bed-4fd2-adb2-2405effee01b
+REPORT RequestId: aa505f95-1bed-4fd2-adb2-2405effee01b  Init Duration: 1.61 ms  Duration: 80.78 ms      Billed Duration: 100 ms Memory Size: 3008 MB     Max Memory Used: 3008 MB
+</pre>
+Just like you would see in AWS Lambda Console!
+
+
+##Further Reading##
+* [New for AWS Lambda – Container Image Support Blog Post](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
+* [Testing AWS Lambda container images locally](https://docs.aws.amazon.com/lambda/latest/dg/images-test.html)
+* [Create an image from an AWS base image for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-create-1)
+* [Create an image from an alternative base image](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-create-2)
