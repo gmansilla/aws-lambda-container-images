@@ -98,7 +98,7 @@ REPORT RequestId: aa505f95-1bed-4fd2-adb2-2405effee01b  Init Duration: 1.61 ms  
 Just like you would see in AWS Lambda Console!
 
 
-##Further Reading##
+## Further Reading ##
 * [New for AWS Lambda – Container Image Support Blog Post](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
 * [Testing AWS Lambda container images locally](https://docs.aws.amazon.com/lambda/latest/dg/images-test.html)
 * [Create an image from an AWS base image for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-create-1)
