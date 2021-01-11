@@ -97,6 +97,11 @@ REPORT RequestId: aa505f95-1bed-4fd2-adb2-2405effee01b  Init Duration: 1.61 ms  
 </pre>
 Just like you would see in AWS Lambda Console!
 
+
+## Pushing changes ##
+Since we're using CDK, we can just run ```$cdk deploy``` and the new image will be uploaded to ECR. As mentioned before, look at the output
+as it will print the URL you're going to use to make api calls.
+
 ## Destroying the stack ##
 After you experiment with this project you should run ```$cdk destroy``` to destroy all the infrastructure we created and avoid incurring in extra charges
 
